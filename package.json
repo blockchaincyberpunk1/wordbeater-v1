@@ -1,0 +1,14 @@
+{
+  "name": "word-beater-v1",
+  "version": "1.0.0",
+  "description": "Speed typing game written in vanilla JS",
+  "main": "main.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "Sheneeza Volcov",
+  "license": "MIT",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
