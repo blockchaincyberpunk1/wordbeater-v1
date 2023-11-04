@@ -58,7 +58,8 @@ async function loadMoreWords() {
       throw new Error('Failed to fetch words');
     }
     const text = await response.text();
-    words.push(...text.split("\n"));
+    const loadedWords = text.split("\n").map(word => word.trim()); // Split the text by new lines and trim each word
+    words.push(...loadedWords); // Add the loaded words to the existing words array
   } catch (error) {
     console.error(error);
   }
@@ -106,6 +107,11 @@ function matchWords() {
 
 // Pick & show random word - This function selects a random word from the word list and displays it for the user to type
 function showWord(words) {
+  // Make sure there are words to choose from
+  if (words.length === 0) {
+    console.error("No words available to display.");
+    return;
+  }
   const randIndex = Math.floor(Math.random() * words.length);
   currentWord.innerHTML = words[randIndex];
 }
